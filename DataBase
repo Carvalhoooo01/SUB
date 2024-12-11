@@ -1,0 +1,21 @@
+@Database(entities = [Aluno::class], version = 1)
+abstract class AlunoDatabase : RoomDatabase() {
+    abstract fun alunoDao(): AlunoDao
+
+    companion object {
+        @Volatile
+        private var INSTANCE: AlunoDatabase? = null
+
+        fun getDatabase(context: Context): AlunoDatabase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AlunoDatabase::class.java,
+                    "aluno_database"
+                ).build()
+                INSTANCE = instance
+                instance
+            }
+        }
+      }
+  }
