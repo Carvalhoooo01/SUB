@@ -1,0 +1,5 @@
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        // Código para iniciar a tela inicial
+    }
+}
