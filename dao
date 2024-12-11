@@ -1,0 +1,8 @@
+@Dao
+interface AlunoDao {
+    @Insert
+    suspend fun insert(aluno: Aluno)
+
+    @Query("SELECT * FROM aluno")
+    suspend fun getAll(): List<Aluno>
+}
