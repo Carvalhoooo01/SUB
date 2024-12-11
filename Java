@@ -1,0 +1,39 @@
+public class RelacaoNotasActivity extends AppCompatActivity {
+
+    private Spinner spinnerAluno;
+    private RecyclerView recyclerView;
+    private AlunoAdapter adapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_relacao_notas);
+
+        // Inicializando os elementos da view
+        spinnerAluno = findViewById(R.id.spinner_aluno);
+        recyclerView = findViewById(R.id.recycler_notas);
+
+        // Configurando o spinner
+        ArrayAdapter<CharSequence> adapterAluno = ArrayAdapter.createFromResource(
+                this, R.array.alunos, android.R.layout.simple_spinner_item);
+        adapterAluno.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAluno.setAdapter(adapterAluno);
+
+        // Configurando o RecyclerView
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new AlunoAdapter(listaDeAlunos); // Substitua por sua lista de alunos
+        recyclerView.setAdapter(adapter);
+
+        // Adicionar um listener para o spinner para atualizar a lista quando o aluno for selecionado
+        spinnerAluno.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Atualizar a lista de notas com base no aluno selecionado
+                String alunoSelecionado = parent.getItemAtPosition(position).toString();
+                // Chamar um método para buscar as notas do aluno selecionado e atualizar o adapter
+            }
+
+            // ...
+        });
+    }
+}
