@@ -1,0 +1,3 @@
+class ListaActivity : AppCompatActivity() {
+    // Código para a tela de listagem
+}
