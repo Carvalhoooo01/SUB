@@ -1,0 +1,3 @@
+class CadastroActivity : AppCompatActivity() {
+    // Código para a tela de cadastro
+}
