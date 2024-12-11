@@ -1,0 +1,40 @@
+public class AlunoAdapter extends RecyclerView.Adapter<AlunoViewHolder> {
+
+    private List<Aluno> alunos;
+
+    public AlunoAdapter(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
+    @NonNull
+    @Override
+    public AlunoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_aluno, parent, false);
+        return new AlunoViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull AlunoViewHolder holder, int position) {
+        Aluno aluno = alunos.get(position);
+        holder.bind(aluno);
+    }
+
+    @Override
+    public int getItemCount() {
+        return alunos.size();
+    }
+}
+
+public class AlunoViewHolder extends RecyclerView.ViewHolder {
+
+     (TextViews para disciplina, notas, média)
+
+    public AlunoViewHolder(@NonNull View itemView) {
+        super(itemView);
+        
+    }
+
+    public void bind(Aluno aluno) {
+         }
+}
